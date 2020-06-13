@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import PropTypes from 'prop-types';
 import './App.css';
 
-function App() {
+const App = () => {
+  const profiles = [
+    {name: "test",age:10},
+    {name: "t",age:20},
+    {name:'1'}
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {
+      profiles.map((profile, index)=>{
+        return <User name={profile.name} age={profile.age} key={index} />
+      })
+    }
+
+    </>
   );
+}
+
+const User = (props) =>{
+return <div>Iam{props.name} {props.age}</div>
+}
+
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
 }
 
 export default App;
