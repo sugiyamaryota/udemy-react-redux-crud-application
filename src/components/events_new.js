@@ -24,14 +24,14 @@ class EventsNew extends Component{
     this.props.history.push('/')
   }
   render(){
-    const {handleSubmit,pristine,submitting} = this.props
+    const {handleSubmit,pristine,submitting,invalid} = this.props
     return(
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div>
           <Field label="Title" name="title" type="text" component={this.renderField}></Field>
           <Field label="Body" name="body" type="text" component={this.renderField}></Field>
           <div>
-            <input type="submit" value="Submit" disabled={pristine || submitting} />
+            <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
             <Link to="/">cancel</Link>
           </div>
         </div>
