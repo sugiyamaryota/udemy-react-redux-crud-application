@@ -13,7 +13,6 @@ export default (events = {}, action) => {
     case READ_EVENT:
     case UPDATE_EVENT:
       const data = action.response.data
-      console.log(data)
       return {...events,[data.id]:data}
     case READ_EVENTS:
       return _.mapKeys(action.response.data,'id')
@@ -24,3 +23,4 @@ export default (events = {}, action) => {
       return events
   }
 }
+
